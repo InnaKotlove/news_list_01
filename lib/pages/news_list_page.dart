@@ -12,7 +12,7 @@ class _NewsListPageState extends State<NewsListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Latest news'),
+        title: const Text('Latest news'),
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'models/news_list_page.dart';
+import 'pages/news_list_page.dart';
 
 void main() {
   runApp(const MyApp());
