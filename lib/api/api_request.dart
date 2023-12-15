@@ -11,11 +11,15 @@ class ApiRequest {
     );
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      return data['data']
-          .map<NewsModels>((item) => NewsModels.fromJson(item))
-          .toList();
-    } else{
-      throw Exception('No news found');
+      if (data ['data'] != null) {
+        return data['data']
+            .map<NewsModels>((item) => NewsModels.fromJson(item))
+            .toList();
+      } else {
+        throw Exception('No news found');
+      }
+    } else {
+      throw Exception('Error : ${response.reasonPhrase}');
     }
   }
 }
