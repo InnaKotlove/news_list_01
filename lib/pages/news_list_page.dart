@@ -50,7 +50,7 @@ class _NewsListPageState extends State<NewsListPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const DetailPage( ),
+                        builder: (context) => const DetailPage(),
                       ),
                     );
                   },
