@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_list01/api/api_request.dart';
-
+import 'package:news_list01/pages/detail_page.dart';
 import '../models/news_models.dart';
 
 class NewsListPage extends StatefulWidget {
@@ -44,13 +44,44 @@ class _NewsListPageState extends State<NewsListPage> {
               itemCount: snapshot.data!.length,
               itemBuilder: (BuildContext context, int index) {
                 final NewsModels news = snapshot.data![index];
-                return Card(
-                  child: Column(
-                    children: [
-                      Image.network(
-                        news.urlToImage!,
+                return InkWell(
+                  splashColor: Colors.grey,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DetailPage( ),
                       ),
-                    ],
+                    );
+                  },
+                  child: Card(
+                    color: Colors.transparent,
+                    margin: const EdgeInsets.symmetric(),
+                    child: Column(
+                      children: [
+                        Image.network(
+                          news.urlToImage!,
+                          errorBuilder: (BuildContext context, Object exception,
+                              StackTrace? stackTrace) {
+                            return const SizedBox.shrink();
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            news.title!,
+                            style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(news.description ?? ''),
+                        )
+                      ],
+                    ),
                   ),
                 );
               },
