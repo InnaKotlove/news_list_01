@@ -64,5 +64,5 @@ class DetailPage extends StatelessWidget {
   void goUrl (String url) async {
     final Uri uri = Uri.parse(url);
 await launchUrl (uri);
-  }
+   }
 }
