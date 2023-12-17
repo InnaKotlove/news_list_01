@@ -21,13 +21,13 @@ class DetailPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-        Image.network(
-        news.urlToImage!,
-          errorBuilder: (BuildContext context, Object exception,
-              StackTrace? stackTrace) {
-            return const SizedBox.shrink();
-          },
-         ),
+          Image.network(
+            news.urlToImage!,
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
+              return const SizedBox.shrink();
+            },
+          ),
           const SizedBox(height: 12),
 
         Text(
