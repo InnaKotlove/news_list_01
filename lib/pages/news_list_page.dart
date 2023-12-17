@@ -24,7 +24,21 @@ class _NewsListPageState extends State<NewsListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('daily News '),
+        backgroundColor: Colors.blueGrey,
+        centerTitle: true,
+        title: const Text(
+            'daily News ',
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 25,
+            wordSpacing: 4,
+          ),
+        ),
+
+        actions: const [
+          Icon(Icons.ac_unit, size: 30),
+          Icon(Icons.dark_mode_outlined, size: 30),
+        ],
       ),
       body: FutureBuilder(
         future: futureResponse,
@@ -33,7 +47,13 @@ class _NewsListPageState extends State<NewsListPage> {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return const Center(
-              child: Text('Loading error, no news!'),
+              child: Text(
+                  'Loading error, no news!',
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             );
           } else if (snapshot.data!.isEmpty) {
             return const Center(
