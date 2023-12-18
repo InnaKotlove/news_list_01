@@ -11,8 +11,10 @@ void main() {
   
     @override
     Widget build(BuildContext context) {
-      return  const MaterialApp(
-        home: NewsListPage(),
+      return MaterialApp(
+        theme: ThemeData.dark(),
+        debugShowCheckedModeBanner: false,
+        home: const NewsListPage(),
       );
     }
   }

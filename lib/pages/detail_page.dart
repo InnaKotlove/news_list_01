@@ -30,11 +30,17 @@ class DetailPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
 
-          //add text
+        Text(
+          news.title!,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+         ),
+       ),
 
           const SizedBox(height: 12),
 
-          //add content text
+          Text(news.description ?? ''),
 
           const SizedBox(height: 12),
 
@@ -43,7 +49,9 @@ class DetailPage extends StatelessWidget {
               DateTime.parse(news.publishedAt!),
             ),
           ),
+
           const SizedBox(height: 12),
+
           TextButton(
             onPressed: () => goUrl(news.url),
             child: Text(news.url),
@@ -56,5 +64,5 @@ class DetailPage extends StatelessWidget {
   void goUrl (String url) async {
     final Uri uri = Uri.parse(url);
 await launchUrl (uri);
-  }
+   }
 }
